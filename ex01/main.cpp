@@ -6,13 +6,12 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:54:41 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/05 22:41:46 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 23:33:56 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongCat.hpp"
 
 int main2( void )
 {
@@ -28,10 +27,14 @@ int main2( void )
 	std::cout << std::endl;
 	std::cout << std::endl;
 
+	Dog  d1;
+	Dog  d2;
+	std::cout << "--" << std::endl;
+	d1 = d2;
+	std::cout << "--" << std::endl;
+	(d1).compareTo(d2);
 
-
-
-
+	std::cout << "\n\n-------\n\n" << std::endl;
 	// Array of animals
 	const Animal	*(animal_array[4]);
 	std::cout << "--------" << std::endl;

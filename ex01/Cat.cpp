@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:50:54 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/05 22:36:41 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 23:18:15 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ Cat::Cat() : Animal()
 Cat::Cat(Cat & src) : Animal(src)
 {
 	std::cout << "Cat Copy Constructor called" << std::endl;
+	brain = new Brain;
+	if (brain == NULL)
+	{
+		std::cerr << "Allocated new Brain failed" << std::endl;
+		return ;
+	}
 	*this = src;
 }
 
@@ -39,9 +45,7 @@ Cat & Cat::operator=(Cat const & src)
 	if (this != &src)
 	{
 		type = src.type;
-		int i = -1;
-		while (++i < 100)
-			brain[i] = src.brain[i];
+		this->brain = src.brain;
 	}
 	return (*this);
 }

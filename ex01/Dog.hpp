@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:38:21 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/05 22:31:54 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 23:03:13 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ public:
 
 	std::string getType(void) const;
 	void makeSound(void) const ;
+	void compareTo(Dog const & src) const;
 };
+
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 19:49:24 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/05 22:22:39 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 23:30:23 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,9 @@ Brain::Brain(void)
 
 Brain::Brain(Brain & src)
 {
-	int i = -1;
-	
 	std::cout << "Brain Copy Constructor called" << std::endl;
-	while (++i < 100)
-		ideas[i] = src.ideas[i];
+	if (this != &src)
+		*this = src;
 }
 
 Brain & Brain::operator=(Brain const & src)
