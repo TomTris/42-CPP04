@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:38:21 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/04 20:58:56 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 18:38:49 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ public:
 	Cat(Cat & src);
 	Cat & operator=(Cat const & src);
 
-	void makeSound(void);
+	std::string getType(void) const;
+	void makeSound(void) const ;
 
 };
 

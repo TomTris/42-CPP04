@@ -6,37 +6,61 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:54:41 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/04 20:57:28 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 19:40:43 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
 
 int main(void)
 {
-	
-	Animal a;
-	Animal b(a);
-	Animal c;
-	c = a;
-	a.makeSound();
-	b.makeSound();
-	c.makeSound();
-
-	Animal a1;
-	Animal b1(a1);
-	Animal c1;
-	c1 = a1;
-	a1.makeSound();
-	b1.makeSound();
-	c1.makeSound();
-
-	Animal a2;
-	Animal b2(a2);
-	Animal c2;
-	c2 = a2;
-	a2.makeSound();
-	b2.makeSound();
-	c2.makeSound();
+	{
+		const Animal *a = new Animal;
+		const Animal *c = new Animal;
+		std::cout << a->getType() << std::endl;
+		std::cout << c->getType() << std::endl;
+		a->makeSound();
+		c->makeSound();
+	}
+		std::cout << "------------------------" << std::endl;
+	{
+		const Animal *a = new Dog;
+		const Animal *c = new Dog;
+		std::cout << a->getType() << std::endl;
+		std::cout << c->getType() << std::endl;
+		a->makeSound();
+		c->makeSound();
+	}
+		std::cout << "------------------------" << std::endl;
+	{
+		const Animal *a = new Cat;
+		const Animal *c = new Cat;
+		std::cout << a->getType() << std::endl;
+		std::cout << c->getType() << std::endl;
+		a->makeSound();
+		c->makeSound();
+	}
+		std::cout << "------------------------" << std::endl;
+	{
+		const WrongAnimal *a = new WrongCat;
+		const WrongAnimal *c = new WrongCat;
+		std::cout << a->getType() << std::endl;
+		std::cout << c->getType() << std::endl;
+		a->makeSound();
+		c->makeSound();
+	}
+		std::cout << "------------------------" << std::endl;
+	{
+		const Animal* meta = new Animal();
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+		std::cout << j->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound();
+		j->makeSound();
+		meta->makeSound();
+	}
+		return 0;
 }

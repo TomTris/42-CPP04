@@ -6,24 +6,23 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:44:04 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/04 20:59:59 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 18:42:41 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::~Animal() {std::cout << "An Animal was left." << std::endl;}
-Animal::Animal() {
+Animal::~Animal() {std::cout << "An Animal left." << std::endl;}
+Animal::Animal() : type("")
+{
 	std::cout << "An Animal was born ... tick tock tick tock ..." << std::endl;
-	type = "";
 }
 
-Animal::Animal(Animal & src)
+Animal::Animal(Animal & src) : type(src.type)
 {
 	std::cout << "Animal Copy Constructor called" << std::endl;
-	if (this != &src)
-		type = src.type;
 }
+
 Animal & Animal::operator=(Animal const & src)
 {
 	std::cout << "Animal Copy Assignation called" << std::endl;
@@ -31,7 +30,12 @@ Animal & Animal::operator=(Animal const & src)
 	return (*this);
 }
 
-void Animal::makeSound(void)
+void Animal::makeSound(void) const
 {
 	std::cout << "Animal Animal Animal Animal" << std::endl;
+}
+
+std::string Animal::getType(void) const
+{
+	return (type);
 }

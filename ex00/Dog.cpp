@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:52:59 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/04 20:59:33 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 18:42:18 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Dog::Dog(Dog & src) : Animal(src)
 {
 	std::cout << "Dog Copy Constructor called" << std::endl;
 	if (this != &src)
-		type = src.type;
+		type = "Dog";
 }
 Dog & Dog::operator=(Dog const & src)
 {
@@ -35,7 +35,12 @@ Dog & Dog::operator=(Dog const & src)
 	return (*this);
 }
 
-void Animal::makeSound(void)
+void Dog::makeSound(void) const
 {
 	std::cout << "Dog Dog Dog Dog" << std::endl;
+}
+
+std::string Dog::getType(void) const
+{
+	return (type);
 }
