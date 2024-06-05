@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:54:41 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/05 19:40:43 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 22:29:28 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int main(void)
 		std::cout << c->getType() << std::endl;
 		a->makeSound();
 		c->makeSound();
+		delete a;
+		delete c;
 	}
 		std::cout << "------------------------" << std::endl;
 	{
@@ -32,6 +34,8 @@ int main(void)
 		std::cout << c->getType() << std::endl;
 		a->makeSound();
 		c->makeSound();
+		delete a;
+		delete c;
 	}
 		std::cout << "------------------------" << std::endl;
 	{
@@ -41,6 +45,8 @@ int main(void)
 		std::cout << c->getType() << std::endl;
 		a->makeSound();
 		c->makeSound();
+		delete a;
+		delete c;
 	}
 		std::cout << "------------------------" << std::endl;
 	{
@@ -50,6 +56,8 @@ int main(void)
 		std::cout << c->getType() << std::endl;
 		a->makeSound();
 		c->makeSound();
+		delete a;
+		delete c;
 	}
 		std::cout << "------------------------" << std::endl;
 	{
@@ -61,6 +69,9 @@ int main(void)
 		i->makeSound();
 		j->makeSound();
 		meta->makeSound();
+		delete meta;
+		delete j;
+		delete i;
 	}
 		return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:21:26 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/05 18:39:34 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 22:30:14 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ protected:
 	std::string  type;
 
 public:
-	~WrongAnimal();
+	virtual  ~WrongAnimal();
 	WrongAnimal();
 	WrongAnimal(WrongAnimal & src);
 	WrongAnimal & operator=(WrongAnimal const & src);

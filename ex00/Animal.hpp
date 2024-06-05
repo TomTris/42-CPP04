@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:38:21 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/05 18:53:06 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 22:29:44 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ protected:
 	std::string  type;
 
 public:
-	~Animal();
+	virtual ~Animal();
 	Animal();
 	Animal(Animal & src);
 	Animal & operator=(Animal const & src);

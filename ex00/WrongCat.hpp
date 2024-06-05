@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 18:21:26 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/05 18:38:49 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 22:30:17 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class WrongCat : public WrongAnimal{
 
 public:
-	~WrongCat();
+	virtual  ~WrongCat();
 	WrongCat();
 	WrongCat(WrongCat & src);
 	WrongCat & operator=(WrongCat const & src);
