@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:38:21 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/05 18:38:49 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 22:30:11 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Dog : public Animal {
 
 public:
-	~Dog();
+	virtual  ~Dog();
 	Dog();
 	Dog(Dog & src);
 	Dog & operator=(Dog const & src);

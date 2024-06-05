@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:38:21 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/05 18:38:49 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/05 22:30:08 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Cat : public Animal {
 
 public:
-	~Cat();
+	virtual ~Cat();
 	Cat();
 	Cat(Cat & src);
 	Cat & operator=(Cat const & src);
