@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 09:40:02 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 14:32:15 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 14:44:27 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,17 +134,13 @@ void ft_tests()
 	delete src;
 	delete charles;
 	delete charles_copy;
-	saver(0, 1);
 	std::cout << std::endl;
-	//system("leaks ex03");
 }
 
 int main()
 {
 	ft_tests();
-	// Leaks check
-	// std::cout << "LEAKS:" << std::endl;
-	// std::cout << "-----------------------" << std::endl;
+	saver(0, 1);
 	system("leaks a.out");
 	return (0);
 }
