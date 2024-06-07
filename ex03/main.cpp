@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 09:40:02 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 14:23:15 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 14:32:15 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,16 +115,14 @@ void ft_tests()
 	// Unequip tests:
 	std::cout << "UNEQUIP:" << std::endl;
 	std::cout << "-----------------------" << std::endl;
-	saver(me->aMa_idx(-1), 0);
-	me->unequip(-1);
-	saver(me->aMa_idx())
-	me->unequip(18);
-	saver(me->aMa_idx())
-	me->unequip(3);
+	saver(me->aMa_idx(-1), 0);	me->unequip(-1);
+	saver(me->aMa_idx(18), 0);	me->unequip(18);
+	saver(me->aMa_idx(3), 0);	me->unequip(3);
+	
 	std::cout << std::endl;
+
 	me->use(1, *charles);
-	saver(me->aMa_idx())
-	me->unequip(1);
+	saver(me->aMa_idx(1), 0);	me->unequip(1);
 	me->use(1, *charles); // try to use it
 	std::cout << std::endl;
 
@@ -136,8 +134,7 @@ void ft_tests()
 	delete src;
 	delete charles;
 	delete charles_copy;
-	delete tmp1;
-	delete tmp2;
+	saver(0, 1);
 	std::cout << std::endl;
 	//system("leaks ex03");
 }

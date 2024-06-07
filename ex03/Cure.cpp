@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 21:16:16 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 12:48:35 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 14:39:42 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ Cure & Cure::operator=(Cure &  src)
 
 Cure *Cure::clone(void) const
 {
-	std::cout << "A Cure clone will be created" << std::endl;
-	return (new Cure());
+	Cure *a = new Cure();
+	std::cout << "An Cure clone is created" << std::endl;
+	return (a);
 }
 
 void	Cure::use(ICharacter &target)

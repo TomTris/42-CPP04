@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 21:18:21 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 14:03:38 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 14:38:50 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void MateriaSource::learnMateria(AMateria* src)
 	{
 		if (this->learned[i] != NULL && src->getType() == this->learned[i]->getType())
 		{
-			std::cout << "This Materia is already learned. This new Materia will be deleted" << std::endl;
+			std::cout << "This Materia `" << src->getType() << "' is already learned. This new Materia will be deleted" << std::endl;
 			delete src;
 			return ;
 		}
@@ -56,7 +56,7 @@ void MateriaSource::learnMateria(AMateria* src)
 	{
 		if (this->learned[i] == NULL)
 		{
-			std::cout << "This Materia is now learned." << std::endl;
+			std::cout << "This Materia `" << src->getType() << "' is now learned." << std::endl;
 			this->learned[i] = src;
 			return ;
 		}

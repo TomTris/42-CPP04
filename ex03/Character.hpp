@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:51:37 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 14:12:18 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 14:31:03 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@
 
 class Character : public ICharacter {
 
-private:
-	std::string _name;
-	AMateria	*inventory[4];
-
 public:
 	~Character();
 	Character();
@@ -38,7 +34,6 @@ public:
 	void equip(AMateria* m);
 	void unequip(int idx);
 	void use(int idx, ICharacter& target);
-
 	AMateria * aMa_idx(int idx);
 };
 

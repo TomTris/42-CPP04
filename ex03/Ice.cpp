@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 19:41:31 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 12:48:44 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 14:39:33 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Ice::~Ice()
 	std::cout << "A Ice left" << std::endl;
 }
 
-Ice::Ice() : AMateria ("Ice")
+Ice::Ice() : AMateria ("ice")
 {
 	std::cout << "A Ice was born" << std::endl;
 }
@@ -29,7 +29,7 @@ Ice::Ice(Ice & src) : AMateria(src.getType())
 
 Ice & Ice::operator=(Ice &  src)
 {
-	if (src._type != "Ice")
+	if (src._type != "ice")
 	{
 		std::cout << "Sth wrong in Ice Assignation operator called" << std::endl;
 		return *this;
@@ -40,8 +40,9 @@ Ice & Ice::operator=(Ice &  src)
 
 Ice *Ice::clone(void) const
 {
-	std::cout << "An Ice clone will be created" << std::endl;
-	return (new Ice());
+	Ice *a = new Ice();
+	std::cout << "An Ice clone is created" << std::endl;
+	return (a);
 }
 
 void	Ice::use(ICharacter &target)
