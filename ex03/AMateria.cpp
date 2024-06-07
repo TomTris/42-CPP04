@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:34:39 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 12:42:14 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 14:40:25 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ AMateria::AMateria() : _type("")
 
 AMateria::AMateria(std::string const & type) : _type(type)
 {
-	std::cout << "A AMateria named " << _type << " was born." << std::endl;
+	std::cout << "A AMateria named `" << _type << "' was born." << std::endl;
 }
 
 std::string const & AMateria::getType() const {return _type;}

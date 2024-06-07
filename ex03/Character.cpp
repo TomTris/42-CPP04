@@ -6,11 +6,15 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:47:10 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 14:12:23 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 14:36:45 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+
+ICharacter::ICharacter(std::string name) : _name(name)
+{
+}
 
 Character::~Character()
 {
@@ -20,21 +24,21 @@ Character::~Character()
 			delete this->inventory[i];
 }
 
-Character::Character() : ICharacter(), _name("qdo")
+Character::Character() : ICharacter("qdo")
 {
 	std::cout << "Character " << _name << " was born" << std::endl;
 	for (int i = 0; i < 4; i++)
 		inventory[i] = NULL;
 }
 
-Character::Character(std::string name) : ICharacter(), _name(name) 	
+Character::Character(std::string name) : ICharacter(name)
 {
 	std::cout << "Character " << _name << " was born" << std::endl;
 	for (int i = 0; i < 4; i++)
 		inventory[i] = NULL;
 }
 
-Character::Character(Character & src) : ICharacter(), _name(src.getName() + "_copy")
+Character::Character(Character & src) : ICharacter(src.getName() + "_copy")
 {
 	std::cout << "Character " << _name << " was born" << std::endl;
 	for (int i = 0; i < 4; i++)
@@ -94,13 +98,15 @@ void Character::use(int idx, ICharacter& target)
 		std::cout << _name << " tried to do sth with " << target.getName() << " with an empty index hahaha" << std::endl;
 		return ;
 	}
-	if (inventory[idx]->getType() == "cure")
-		std::cout << _name << " heals " << target.getName() << "'s wounds!" << std::endl;
-	else if (inventory[idx]->getType() == "ice")
-		std::cout << _name << " shoots an ice bolt at " << target.getName() << std::endl;
+	std::cout << _name << " ";
+	inventory[idx]->use(target);
+	// if (inventory[idx]->getType() == "cure")
+		// std::cout << _name << " heals " << target.getName() << "'s wounds!" << std::endl;
+	// else if (inventory[idx]->getType() == "ice")
+	// 	std::cout << _name << " shoots an ice bolt at " << target.getName() << std::endl;
 }
 
-AMateria * Character::aMa_idx(int idx)
+AMateria *Character::aMa_idx(int idx)
 {
 	if (idx < 0 || idx > 3 )
 		return (NULL);
