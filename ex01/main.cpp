@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:54:41 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/06 16:02:04 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 15:36:37 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main2( void )
 
 	std::cout << "\n\n-------\n\n" << std::endl;
 	// Array of animals
-	const Animal	*(animal_array[4]);
+	const Animal	*animal_array[4];
 	std::cout << "--------" << std::endl;
 	// Half filled with dogs
 	for (int i = 0; i < 2; i++)
@@ -57,5 +57,5 @@ int main2( void )
 int	main(void)
 {
 	main2();
-	system("leaks a.out");
+	// system("leaks a.out");
 }

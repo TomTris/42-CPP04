@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:47:04 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 14:30:10 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 15:03:07 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class ICharacter {
 protected:
 	std::string const _name;
 	AMateria	*inventory[4];
+	AMateria	*to_del[1001];
 
 public:
 	virtual ~ICharacter() {}
