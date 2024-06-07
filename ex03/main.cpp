@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 09:40:02 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 14:44:27 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 15:42:02 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,6 @@
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
 
-void saver(AMateria *src, int del)
-{
-	static AMateria *a[10001];
-	static int		nbr = 0;
-
-	if (nbr == 0)
-		for (int i = 0; i < 1001; i++)
-			a[i] = NULL;
-	if (del > 0)
-	{
-		for (int i = 0; i < nbr; i++)
-			delete a[i];
-		nbr = 0;
-		return ;
-	}
-	if (src == 0)
-		return ;
-	if (nbr == 1000)
-	{
-		a[0] = src;
-		nbr = 1;
-		return ;
-	}
-	a[nbr] = src;
-	nbr++;
-}
 
 void ft_tests()
 {
@@ -91,10 +65,8 @@ void ft_tests()
 	std::cout << "-----------------------" << std::endl;
 
 
-	saver(charles->aMa_idx(0), 0);
 	charles->unequip(0); // this shows that they have different materia pointers equipped
 
-	saver(charles_copy->aMa_idx(1), 0);
 	charles_copy->unequip(1); //this will produce a leak if we don't store the address somewhere else before
 
 	charles_copy->equip(src->createMateria("cure"));
@@ -115,14 +87,14 @@ void ft_tests()
 	// Unequip tests:
 	std::cout << "UNEQUIP:" << std::endl;
 	std::cout << "-----------------------" << std::endl;
-	saver(me->aMa_idx(-1), 0);	me->unequip(-1);
-	saver(me->aMa_idx(18), 0);	me->unequip(18);
-	saver(me->aMa_idx(3), 0);	me->unequip(3);
+	me->unequip(-1);
+	me->unequip(18);
+	me->unequip(3);
 	
 	std::cout << std::endl;
 
 	me->use(1, *charles);
-	saver(me->aMa_idx(1), 0);	me->unequip(1);
+	me->unequip(1);
 	me->use(1, *charles); // try to use it
 	std::cout << std::endl;
 
@@ -137,10 +109,37 @@ void ft_tests()
 	std::cout << std::endl;
 }
 
+
 int main()
 {
 	ft_tests();
-	saver(0, 1);
-	system("leaks a.out");
+	// system("leaks a.out");
 	return (0);
 }
+
+// void save r(AMateria *src, int del)
+// {
+// 	static AMateria *a[10001];
+// 	static int		nbr = 0;
+
+// 	if (nbr == 0)
+// 		for (int i = 0; i < 1001; i++)
+// 			a[i] = NULL;
+// 	if (del > 0)
+// 	{
+// 		for (int i = 0; i < nbr; i++)
+// 			delete a[i];
+// 		nbr = 0;
+// 		return ;
+// 	}
+// 	if (src == 0)
+// 		return ;
+// 	if (nbr == 1000)
+// 	{
+// 		a[0] = src;
+// 		nbr = 1;
+// 		return ;
+// 	}
+// 	a[nbr] = src;
+// 	nbr++;
+// }

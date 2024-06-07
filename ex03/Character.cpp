@@ -6,7 +6,7 @@
 /*   By: qdo <qdo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:47:10 by qdo               #+#    #+#             */
-/*   Updated: 2024/06/07 14:36:45 by qdo              ###   ########.fr       */
+/*   Updated: 2024/06/07 15:31:11 by qdo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 ICharacter::ICharacter(std::string name) : _name(name)
 {
+
 }
 
 Character::~Character()
@@ -22,6 +23,9 @@ Character::~Character()
 	for (int i = 0; i < 4; i++)
 		if (this->inventory[i] != NULL)
 			delete this->inventory[i];
+	for (int i = 0; i < 1001; i++)
+		if (to_del[i] != NULL)
+			delete to_del[i];
 }
 
 Character::Character() : ICharacter("qdo")
@@ -29,6 +33,8 @@ Character::Character() : ICharacter("qdo")
 	std::cout << "Character " << _name << " was born" << std::endl;
 	for (int i = 0; i < 4; i++)
 		inventory[i] = NULL;
+	for (int i = 0; i < 1001; i++)
+		to_del[i] = NULL;
 }
 
 Character::Character(std::string name) : ICharacter(name)
@@ -36,6 +42,8 @@ Character::Character(std::string name) : ICharacter(name)
 	std::cout << "Character " << _name << " was born" << std::endl;
 	for (int i = 0; i < 4; i++)
 		inventory[i] = NULL;
+	for (int i = 0; i < 1001; i++)
+		to_del[i] = NULL;
 }
 
 Character::Character(Character & src) : ICharacter(src.getName() + "_copy")
@@ -43,6 +51,8 @@ Character::Character(Character & src) : ICharacter(src.getName() + "_copy")
 	std::cout << "Character " << _name << " was born" << std::endl;
 	for (int i = 0; i < 4; i++)
 		inventory[i] = NULL;
+	for (int i = 0; i < 1001; i++)
+		to_del[i] = NULL;
 	*this = src;
 }
 
@@ -83,9 +93,23 @@ void Character::equip(AMateria *src)
 
 void Character::unequip(int idx)
 {
-	if (idx < 0 || idx >= 4)
+	if (idx < 0 || idx >= 4 || inventory[idx] == NULL)
 		return ;
-	this->inventory[idx] = 0;
+
+	int i = 0;
+	while (i < 1001 && to_del[i] != NULL)
+		i++;
+	if (i == 1001)
+	{
+		for (int j = 0; j < 1001; j++)
+		{
+			delete to_del[j];
+			to_del[j] = NULL;
+		}
+		i = 0;
+	}
+	to_del[i] = inventory[idx];
+	inventory[idx] = 0;
 }
 
 
